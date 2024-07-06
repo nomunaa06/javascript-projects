@@ -1,13 +1,17 @@
 //We want to COMPLETELY reverse an array by flipping the order of the entries AND flipping the order of characters in each element.
 
+let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
+let arrayTest2 = [123, 8897, 42, 1168, 8675309];
+let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // Part One: Reverse Characters
-
+ 
 // 1. Define the function as reverseCharacters. Give it one parameter, which will be the string to reverse.
 // 2. Within the function, split the string into an array, then reverse the array.
 // 3. Use join to create the reversed string and return that string from the function.
 // 4. Below the function, define and initialize a variable to hold a string.
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
+
 
 // Part Two: Reverse Digits
 
@@ -26,9 +30,30 @@
 // 5. Return the final, reversed array.
 // 6. Be sure to print the results from each test case in order to verify your code.
 
-let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
-let arrayTest2 = [123, 8897, 42, 1168, 8675309];
-let arrayTest3 = ['hello', 'world', 123, 'orange'];
+function reverseCharacters(str){
+    let hold;
+    let strArray =[];
+    if(typeof str === "string"){
+    strArray = str.split('');
+    hold =  strArray.reverse().join('');
+    return hold;
+   }
+   else if( typeof str === "number") {
+    strArray = String(str).split('');
+    hold =  strArray.reverse().join('');
+    return Number(hold);
+    
+   }
+   
+}
+ //  console.log(reverseCharacters(myVariableName));
+let reversedArray=[];
+for (i=0; i<arrayTest3.length; i++){
+    reversedArray.push(reverseCharacters(arrayTest3[i]));
+}
+reversedArray.reverse();
+console.log(reversedArray);
+
 
 // Bonus Missions
 
@@ -41,6 +66,22 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
 // 2. Call your function and print the returned phrase.
+function funPhrase(word){
+    let funArray = word.split(' ');
+    let modWord;
+    let orgWord;
+    if(funArray[0].length>=3){
+    orgWord = funArray[0];    
+    modWord = funArray[0].slice(0,3);
+    }
+    else if(funArray[funArray.length-1].length<=3){
+    orgWord = funArray[funArray.length-1]; 
+    modWord = funArray[funArray.length-1].slice(-1);   
+    }
+    return `We put the ${modWord} in ${orgWord}`;
+    }
+let strg = 'Functions rock!';
+console.log(funPhrase(strg));
 
 // Area of rectangle equal to length x width
 
@@ -49,3 +90,16 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Call your area function by passing in two arguments - the length and width.
 // 4. If only one argument is passed to the function, then the shape is a square. Modify your code to deal with this case.
 // 5. Use a template literal to print, “The area is ____ cm^2.”
+
+function areaRec( lenght,width = null){ 
+    let area;
+    if( width === null){
+        area = lenght**2;
+        return area;
+    }
+    else{
+    area = lenght*width;
+    return area;
+    }
+}
+console.log(`The area is ${areaRec(2,5)} cm^2`);
