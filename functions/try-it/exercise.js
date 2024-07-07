@@ -2,7 +2,7 @@
 function makeAline(size){
     let line = '';
     for(let i = 0; i<size; i++){
-        line = line + "#"
+        line = line + myChar('&');
     }
     return line;
 }
@@ -16,7 +16,7 @@ let squire = "";
 for(let i = 0; i<lenght; i++){
     let row = '';
     for(let j=0; j<lenght; j++){
-        row = row + "#"
+        row = row + myChar()
     }
    squire = squire + `\n${row}`;
 
@@ -35,7 +35,7 @@ function makeRectangle(width, height) {
     for( let i =0; i<height; i++){
         let recRow ='';
         for (j=0; j<width; j++){
-            recRow += '#';
+            recRow += myChar();
         }
         rectangle += `\n${recRow}`;
     }
@@ -95,4 +95,10 @@ function reverse(str) {
     let lettersArray = str.split('');
     let reversedLettersArray = lettersArray.reverse();
     return reversedLettersArray.join('');
+ }
+
+ // Bonus mission
+
+ function myChar(char='#'){
+   return char;
  }
