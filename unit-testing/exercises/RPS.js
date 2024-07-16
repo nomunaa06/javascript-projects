@@ -1,5 +1,8 @@
 function whoWon(player1,player2){
 
+  let array = ['rock', 'paper', 'scissors'];
+  if(array.includes(player1)&&array.includes(player2))
+   {
    if (player1 === player2){
      return 'TIE!';
    }
@@ -12,9 +15,14 @@ function whoWon(player1,player2){
      return 'Player 2 wins!';
    }
    
-   if (player1 === 'scissors' && player2 === 'rock '){
+   if (player1 === 'scissors' && player2 === 'rock'){
      return 'Player 2 wins!';
    }
  
    return 'Player 1 wins!';
+  }
+  else {
+    return "invalid";
+  }
  }
+ module.exports=whoWon;
