@@ -28,3 +28,7 @@
 .centered {
     text-align: center;
 }
+
+#spaceShuttleWidth {
+    display: inline-block;
+}
